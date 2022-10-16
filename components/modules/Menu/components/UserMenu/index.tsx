@@ -21,13 +21,13 @@ export const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
           <img src={user.image} className="w-8 h-8 rounded-full object-cover" />
           <Status status={user.status} />
         </div>
-        <div className='text-[#dbddde] font-semibold text-[13px] leading-[1] mr-4'>
+        <div className='text-[#dbddde] font-semibold text-[14px] leading-[1.1] mr-4'>
           <h5>{user.tag.split("#")[0]}</h5>
-          <span className='text-[12px] text-gray-400 font-normal'>#{user.tag.split('#')[1]}</span>
+          <span className='text-[13px] text-gray-400 font-normal'>#{user.tag.split('#')[1]}</span>
         </div>
       </div>
 
-      <button className='icon-button' onClick={handleSignOut}>
+      <button className='icon-button text-lg' onClick={handleSignOut}>
         <FiLogOut />
       </button>
     </div>

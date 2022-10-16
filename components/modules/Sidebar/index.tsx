@@ -13,7 +13,7 @@ export const Sidebar: React.FC<SidebarProps> = () => {
   const selected = router.asPath.includes('/@me')
 
   return (
-    <nav className='flex flex-shrink-0 w-16 bg-[#1f2225] flex-col items-center py-2'>
+    <nav className='flex flex-shrink-0 w-[76px] bg-[#1f2225] flex-col items-center py-2'>
       <Link href="/channels/@me">
         <div className='w-full h-12 relative flex justify-center group rounded-full mb-2'>
           <div className={`

@@ -27,25 +27,25 @@ export const UsersList: React.FC<PageProps> = ({ onShowUserProfile }) => {
       </div>
       {onlineMembers?.map(member => (
         <div key={member.id} className="flex items-center hover__animation py-1 px-1 rounded-lg" >
-          <div className='relative mr-2.5'>
-            <img src={member.data().image} className="w-8 h-8 rounded-full object-cover" alt={member.data()?.name} />
+          <div className='relative mr-3'>
+            <img src={member.data().image} className="w-9 h-9 rounded-full object-cover" alt={member.data()?.name} />
             <Status status={member.data().status} />
           </div>
-          <span className='text-gray-400 font-medium text-[15px]'>
+          <span className='text-gray-400 font-medium text-base'>
             {member.data().name}
           </span>
         </div>
       ))}
-      <div className='text-[#8c8e93] text-[13px] font-semibold my-3'>
+      <div className='text-[#8c8e93] text-[13px] font-semibold my-3.5'>
         OFFLINE - {offlineMembers?.length ?? 0}
       </div>
       {offlineMembers?.map(member => (
         <div key={member.id} className="flex items-center hover__animation py-1 px-1 rounded-lg">
-          <div className='relative mr-2.5'>
-            <img src={member.data().image} className="w-8 h-8 rounded-full object-cover" alt={member.data()?.name} />
+          <div className='relative mr-3'>
+            <img src={member.data().image} className="w-9 h-9 rounded-full object-cover" alt={member.data()?.name} />
             <Status status={member.data().status} />
           </div>
-          <span className='text-gray-400 font-medium text-[15px]'>
+          <span className='text-gray-400 font-medium text-base'>
             {member.data().name}
           </span>
         </div>

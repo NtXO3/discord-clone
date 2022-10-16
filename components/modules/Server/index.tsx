@@ -19,6 +19,7 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { useSession } from 'next-auth/react';
 import { ProfileModal } from '../ProfileModal';
 import { useOutsideClick } from 'hooks/useOutsideClick';
+import { useReverseScroll } from 'hooks/useReverseScroll';
 
 export const Server: React.FC<ServerProps> = () => {
   const { currentChannel, currentServer } = useServerState();
@@ -40,13 +41,7 @@ export const Server: React.FC<ServerProps> = () => {
     setShowProfileModal(true);
   }
 
-  React.useEffect(() => {
-    if (messagesListRef?.current) {
-      const scrollHeight = messagesListRef?.current.scrollHeight;
-
-      messagesListRef.current.scrollTop = scrollHeight;
-    }
-  }, [messagesListRef, currentChannel?.id, messages])
+  useReverseScroll(messagesListRef, messages)
 
   const onSendMessage = async (e?: React.KeyboardEvent<HTMLTextAreaElement>, attachment?: string | null, setAttachment?: (attachment: string | null) => void, gif?: string) => {
     if ((!message.trim().length && !gif) || !currentChannel || !currentServer || !currentUserData) {

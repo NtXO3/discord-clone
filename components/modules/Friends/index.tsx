@@ -12,6 +12,7 @@ import { Input } from '../Input';
 import { Message } from '../Message';
 import { ProfileModal } from '../ProfileModal';
 import { DateDivider } from '../Server/components/DateDivider';
+import { useReverseScroll } from 'hooks/useReverseScroll';
 
 export const Friends: React.FC = () => {
   const router = useRouter();
@@ -25,6 +26,8 @@ export const Friends: React.FC = () => {
   const [showProfileModal, setShowProfileModal] = React.useState(false);
   const [profileModalPos, setProfileModalPos] = React.useState<null | { x: number, y: number}>(null);
   const [otherUser, setOtherUser] = React.useState<null | i.User>(null);
+
+  useReverseScroll(messagesListRef, messages)
 
   useOutsideClick(showProfileModal, setShowProfileModal);
 
@@ -108,20 +111,20 @@ export const Friends: React.FC = () => {
     return (
       <div className='flex flex-1 h-screen flex-col'>
         <div className='app-top-bar justify-between px-4'>
-          <div className='text-[#ebedef] flex items-center font-semibold'>
+          <div className='text-[#ebedef] flex items-center font-semibold text-lg'>
             <span className='text-2xl mr-2 text-[#8c8e93] font-medium'>@</span>
             {otherUser?.name}
-            <Status relative status={otherUser?.status ?? 'OFFLINE'} extraClassNames="ml-1" />
+            <Status relative status={otherUser?.status ?? 'OFFLINE'} extraClassNames="ml-1.5" />
           </div>
           <div className='flex items-center gap-1'>
-            <button className='icon-button text-[22px]'>
+            <button className='icon-button text-[24px]'>
               <IoIosHelpCircle />
             </button>
           </div>
         </div>
 
         <div className='flex justify-end h-screen overflow-hidden'>
-          <div className='flex-1 relative h-full max-h-screen pb-20 flex flex-col justify-end'>
+          <div className='flex-1 relative h-full max-h-screen pb-[70px] flex flex-col justify-end'>
             <div ref={messagesListRef} className='max-h-full pt-8 overflow-y-scroll'>
               {messages && messages?.length > 0 && <DateDivider date={messages[0]?.data().timestamp} />}
               {messages && messages.map((message, index) => {

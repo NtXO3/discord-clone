@@ -19,7 +19,6 @@ export const Input: React.FC<InputProps> = ({ message, setMessage, onSend, isDm,
   const [showGifPicker, setShowGifPicker] = React.useState(false);
   const [gifCategory, setGifCategory] = React.useState<i.GifCategories>('trending');
   const [gifSearchQuery, setGifSearchQuery] = React.useState("");
-  const [selectedGif, setSelectedGif] = React.useState("");
   const API_KEY = process.env.GIPHY_API_KEY;
 
   const gf = new GiphyFetch('JAGwQpdlZL5W5TRFFbQUGWZoNElPc0xV');
@@ -88,7 +87,7 @@ export const Input: React.FC<InputProps> = ({ message, setMessage, onSend, isDm,
         <div className='flex items-start justify-between'>
           <div className='flex items-start flex-1'>
             <div 
-              className='text-lg text-gray-400 cursor-pointer hover:text-[#ebedef]'
+              className='text-[20px] text-gray-400 cursor-pointer hover:text-[#ebedef]'
               onClick={() => addFileRef?.current && addFileRef?.current.click()}
             >
               <BsFillPlusCircleFill />
@@ -102,7 +101,7 @@ export const Input: React.FC<InputProps> = ({ message, setMessage, onSend, isDm,
             </div>
             <TextareaAutosize
               className='bg-transparent resize-none flex-1 outline-none pl-4 
-              text-[15px] placeholder-gray-500 text-[#ebedef]' 
+              text-base placeholder-gray-500 text-[#ebedef]' 
               rows={1}
               placeholder={isDm ? `Message @${userDmName}` : `Message #${currentChannel?.data()?.name}`}
               value={message}
@@ -115,7 +114,7 @@ export const Input: React.FC<InputProps> = ({ message, setMessage, onSend, isDm,
           </div>
 
           <div className='flex items-center gap-x-4 relative'>
-            <button className='text-lg text-gray-400 cursor-pointer hover:text-[#ebedef]' onClick={(e) => {
+            <button className='text-[20px] text-gray-400 cursor-pointer hover:text-[#ebedef]' onClick={(e) => {
               e.stopPropagation();
               setShowGifPicker(false);
               setShowEmojis(!showEmojis)

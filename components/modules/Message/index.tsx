@@ -64,15 +64,15 @@ export const Message: React.FC<MessageProps> = ({ message, id, onShowUserProfile
   return (
     <div className='flex relative w-full mb-3 group hover:bg-[#3a3d43] pl-4 pr-32 py-2 transition duration-200 ease-in-out'>
       <div className='mr-3'>
-        <img src={user?.image} className="w-8 h-8 rounded-full object-cover" alt="profile image" />
+        <img src={user?.image} className="w-11 h-11 rounded-full object-cover" alt="profile image" />
       </div>
 
       <div className='flex flex-col text-[#ebedef] w-full relative items-start'>
-        <div className='flex items-center font-semibold text-[15px] mb-1 relative pr-2'>
+        <div className='flex items-center font-semibold text-base mb-1 relative pr-2'>
           <h4 className='mr-2 cursor-pointer hover:underline' onClick={(e) => onShowUserProfile(e, message.uid)}>
             {user?.name}
           </h4>
-          <span className='text-[11px] leading-1 text-gray-400 font-medium'>
+          <span className='text-[12px] leading-1 text-gray-400 font-medium'>
             <Moment calendar>{message?.timestamp?.seconds * 1000}</Moment>
           </span>
         </div>
@@ -83,13 +83,13 @@ export const Message: React.FC<MessageProps> = ({ message, id, onShowUserProfile
                 value={messageText}
                 onChange={(e) => setMessageText(e.target.value)}
                 className='bg-transparent resize-none flex-1 outline-none pl-1 
-                    text-[15px] placeholder-gray-500 text-[#ebedef] w-full'
+                    text-base placeholder-gray-500 text-[#ebedef] w-full'
                 onKeyUp={(e) => onEditMessage(documentRef ?? defaultRef, e, false)}
                 onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && e.preventDefault()}
                 rows={1}
               />
             </div>
-            <p className='text-[12px]'>
+            <p className='text-[13px]'>
               escape to &nbsp;
               <span className='text-blue-400 hover:underline cursor-pointer' onClick={onCancel}>
                 cancel&nbsp;

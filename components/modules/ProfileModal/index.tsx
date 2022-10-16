@@ -93,14 +93,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ profileModalPos }) =
 
   return (
     <div 
-      className={`fixed bg-[#292b2f] pb-4 w-[320px] text-white rounded-md translate-x-[25%] translate-y-[-20%] z-10`} 
+      className={`fixed bg-[#292b2f] pb-4 w-[340px] text-white rounded-md translate-x-[25%] translate-y-[-20%] z-10`} 
       onClick={(e) => e.stopPropagation()}
       style={{ top: profileModalPos?.y, left: profileModalPos?.x }}
     >
-      <div className='w-full h-20 bg-blue-400 rounded-t-md' />
-      <div className='px-2 pt-12 relative'>
+      <div className='w-full h-24 bg-blue-400 rounded-t-md' />
+      <div className='px-2 pt-14 relative'>
         <div 
-          className={`w-20 h-20 border-[#292b2f] border-4 absolute rounded-full left-4 top-0 translate-y-[-50%]
+          className={`w-24 h-24 border-[#292b2f] border-4 absolute rounded-full left-4 top-0 translate-y-[-50%]
           ${isCurrentUser && 'group'}`}
         >
           {isCurrentUser && (
@@ -121,19 +121,19 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ profileModalPos }) =
           />
         </div>
         <div className='bg-[#19191c] w-full p-2 rounded-md'>
-          <div className='border-b border-gray-700 text-[#ebedef] pb-1 font-semibold text-lg mb-2'>
+          <div className='border-b border-gray-700 text-[#ebedef] pb-1 font-semibold text-[20px] mb-2'>
             {user?.tag.split('#')[0]}
             <span className='text-gray-400'>#{user?.tag.split('#')[1]}</span>
           </div>
-          <p className='text-[#ebedef] font-bold text-[12px]'>
+          <p className='text-[#ebedef] font-bold text-[13px]'>
             ABOUT ME
           </p>
-          <p className='text-[13px] font-light text-gray-300 mb-4'>
+          <p className='text-sm font-light text-gray-300 mb-4'>
             {user?.description || 'No description yet'}
           </p>
           {user?.uid !== session?.user.uid && (
             <input 
-              className='border border-gray-700 bg-transparent w-full outline-none rounded-sm text-[14px] py-1.5 px-2 mb-2'
+              className='border border-gray-700 bg-transparent w-full outline-none rounded-sm text-[15px] py-1.5 px-2 mb-2'
               placeholder={`Message @${user?.tag}`}
               ref={inputRef}
               onKeyUp={onSendDirectMessage}

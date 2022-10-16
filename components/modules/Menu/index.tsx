@@ -25,7 +25,7 @@ export const Menu: React.FC = () => {
   }, [currentUserData])
 
   return (
-    <div className='bg-[#2f3136] flex-shrink-0 w-56 relative'>
+    <div className='bg-[#2f3136] flex-shrink-0 w-60 relative'>
       <div className='app-top-bar'>
         <div className='w-full h-6 bg-[#1f2225] rounded-sm px-1.5 text-[13px] flex items-center text-gray-400 font-medium cursor-pointer'>
           Find or start a conversation
@@ -38,7 +38,7 @@ export const Menu: React.FC = () => {
       </div>
       <div className='group flex justify-between text-[#8c8e93] my-2 px-3'>
         <div 
-          className='flex items-center text-[12px] font-semibold group-hover:text-[#d9d9d9]'
+          className='flex items-center text-[13px] font-semibold group-hover:text-[#d9d9d9]'
         >
           <span>DIRECT MESSAGES</span>
         </div>

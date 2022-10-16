@@ -10,7 +10,7 @@ export const ChannelLink: React.FC<ChannelLinkProps> = ({ channel, id }) => {
 
   return (
     <div 
-      className={`menu-button cursor-pointer h-9 flex items-center mb-1.5 ${isActive && 'bg-[#43464d] text-gray-100'}`}
+      className={`text-base menu-button cursor-pointer h-9 flex items-center mb-1.5 ${isActive && 'bg-[#43464d] text-gray-100'}`}
       onClick={() => router.push(`/channels/${currentServer?.id}/${id}`)}
     >
       <span className='text-xl mr-2 text-[#8c8e93]'>#</span>
