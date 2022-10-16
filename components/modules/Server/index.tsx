@@ -34,7 +34,6 @@ export const Server: React.FC<ServerProps> = () => {
   useOutsideClick(showProfileModal, setShowProfileModal);
 
   const onShowUserProfile = (e: React.MouseEvent, uid: string) => {
-    console.log(e.clientX)
     e.stopPropagation();
     setSelectedUserId(uid);
     setProfileModalPos({ x: e.clientX < 500 ? 400 : 650, y: e.clientY < 700 ? e.clientY : 500 });

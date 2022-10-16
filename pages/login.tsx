@@ -8,7 +8,6 @@ import { getProviderIcon } from "utils";
 const Login: NextPage<LoginProps> = ({ providers }) => {
   const { data: session } = useSession();
 
-  console.log(session)
   return (
     <div className="w-full h-screen relative">
       <Head>
@@ -48,7 +47,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const providers = await getProviders();
 
   if (session?.user) {
-    console.log('this ran')
     return {
       redirect: {
         destination: '/channels/@me',
