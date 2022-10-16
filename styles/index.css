@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Whitney';
+  src: url('../public/fonts/Whitney/whitneylight.otf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Whitney';
+  src: url('../public/fonts/Whitney/whitneybook.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Whitney';
+  src: url('../public/fonts/Whitney/whitneymedium.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Whitney';
+  src: url('../public/fonts/Whitney/whitneysemibold.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Whitney';
+  src: url('../public/fonts/Whitney/whitneybold.otf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Paytone One';
+  src: url('../public/fonts/PaytoneOne/PaytoneOne-Regular.ttf');
+  font-weight: 700;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Whitney', 'Times New Roman';
+}
+
+.font-headline {
+  font-weight: 400;
+  font-family: 'Paytone One';
+}
+
+.giphy-gif {
+  cursor: pointer;
+}
+
+.giphy-gif:hover {
+  opacity: 0.67;
+}
+
+@layer components {
+  .dsc-button {
+    @apply border-none bg-white rounded-full px-6 py-1.5 text-sm font-medium hover:text-[#404eed] transition-all duration-300
+    hover:shadow-md hover:shadow-gray-900
+  }
+
+  .center-absolute {
+    @apply top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+  }
+
+  .menu-button {
+    @apply w-full mb-1 h-10 rounded-md flex items-center text-gray-400 hover:text-gray-100 hover:bg-[#3b3f46] px-2.5 font-medium
+    text-[15px] transition-colors duration-150 outline-none
+  }
+
+  .hover__animation {
+    @apply hover:text-gray-100 hover:bg-[#3b3f46] transition-colors duration-150 outline-none cursor-pointer
+  }
+
+  .app-top-bar {
+    @apply border-b border-gray-800 px-2.5 h-11 flex items-center shadow-lg
+  }
+
+  .icon-button {
+    @apply rounded-md menu-button w-8 h-8 p-1 flex items-center justify-center text-gray-400 hover:text-gray-100 hover:bg-[#3b3f46]
+    text-[15px] transition-colors duration-150 outline-none
+  }
+}
