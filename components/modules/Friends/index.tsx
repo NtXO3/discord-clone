@@ -35,16 +35,30 @@ export const Friends: React.FC = () => {
     setShowProfileModal(true);
   }
 
-  const onSendMessage = async (e: React.KeyboardEvent<HTMLTextAreaElement>, attachment?: string | null, setAttachment?: (attachment: string | null) => void) => {
-    if (!input.trim().length) {
+  const onSendMessage = async (e?: React.KeyboardEvent<HTMLTextAreaElement>, attachment?: string | null, setAttachment?: (attachment: string | null) => void, gif?: string) => {
+    if ((!input.trim().length && !gif) || !currentUserData) {
       return;
     }
-    if (e.key !== 'Enter' || e.shiftKey || !currentUserData) return;
-    e.preventDefault();
+  
+    const dbRef = collection(db, "conversations", messageId as string, "messages")
+  
+    if (gif) {
+      e?.preventDefault();
+      await addDoc(dbRef, {
+        uid: currentUserData?.uid,
+        name: currentUserData.name,
+        timestamp: serverTimestamp(),
+        image: currentUserData.image,
+        gif: gif,
+      })
+    }
+  
+    if (e?.key !== 'Enter' || e.shiftKey) return;
+    e?.preventDefault();
     const messageToSend = input;
     setInput('')
 
-    const docRef = await addDoc(collection(db, "conversations", messageId as string, "messages"), {
+    const docRef = await addDoc(dbRef, {
       text: messageToSend,
       uid: currentUserData.uid,
       name: currentUserData.name,
@@ -132,7 +146,7 @@ export const Friends: React.FC = () => {
               <ProfileModal profileModalPos={profileModalPos} />
             )}
             
-            <Input isDm userDmName={otherUser?.name} message={input} setMessage={setInput} onSend={(e) => onSendMessage(e as React.KeyboardEvent<HTMLTextAreaElement>)} />
+            <Input isDm userDmName={otherUser?.name} message={input} setMessage={setInput} onSend={onSendMessage} />
 
           </div>
         </div>
