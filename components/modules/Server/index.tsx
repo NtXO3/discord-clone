@@ -115,8 +115,8 @@ export const Server: React.FC<ServerProps> = () => {
       </div>
 
       <div className='flex justify-end h-screen overflow-hidden'>
-        <div className='flex-1 relative h-full max-h-screen pb-20 flex flex-col justify-end'>
-          <div ref={messagesListRef} className='max-h-full pt-8 overflow-y-scroll'>
+        <div className='flex-1 relative h-full max-h-screen pb-[86px] flex flex-col justify-end'>
+          <div ref={messagesListRef} className='max-h-full pt-8 overflow-y-auto dc-scrollbar'>
             <div className='px-4 mb-4 text-[#ebedef]'>
               <div className='w-14 h-14 flex items-center justify-center bg-[#4f545c] text-[40px] rounded-full mb-3'>#</div>
               <h2 className='text-3xl font-bold mb-1'>Welcome to #{currentChannel?.data()?.name}!</h2>

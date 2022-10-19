@@ -125,7 +125,7 @@ export const Friends: React.FC = () => {
 
         <div className='flex justify-end h-screen overflow-hidden'>
           <div className='flex-1 relative h-full max-h-screen pb-[70px] flex flex-col justify-end'>
-            <div ref={messagesListRef} className='max-h-full pt-8 overflow-y-scroll'>
+            <div ref={messagesListRef} className='max-h-full pt-8 overflow-y-auto dc-scrollbar'>
               {messages && messages?.length > 0 && <DateDivider date={messages[0]?.data().timestamp} />}
               {messages && messages.map((message, index) => {
                 const prevMessageDate = new Date(messages[index-1]?.data()?.timestamp?.seconds * 1000)
